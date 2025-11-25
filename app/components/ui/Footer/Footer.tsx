@@ -3,7 +3,7 @@ import { robotoCondensed } from "../../../fonts";
 
 export default function Footer() {
   return (
-    <footer className="w-full">
+    <footer className="w-full overflow-x-hidden">
       <div className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <div className="inline-block mb-6">

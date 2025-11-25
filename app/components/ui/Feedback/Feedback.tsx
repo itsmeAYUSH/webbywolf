@@ -9,25 +9,25 @@ const Feedback = () => {
 
   const testimonials = [
     {
-      icon: "/images/feedback/icon1.png",
+      icon: "/images/Feedback/icon1.png",
       text: "Purus maecenas quis elit eu, aliquet. Tellus porttitor ut sollicitudin sit non fringilla. Quam nunc volutpat senectus neque eget amet pharetra, euismod. Tempus, nunc, molestie imperdiet curabitur commodo euismod.",
       avatar: "/images/avatar.png",
       name: "Jane Cooper",
     },
     {
-      icon: "/images/feedback/icon2.png",
+      icon: "/images/Feedback/icon2.png",
       text: "Vehicula sit sit pharetra bibendum ut risus accumsan. Purus, in metus, enim. Ipsum none euismod pellentesque. Mattis pharetra accumsan eget est mi enim, id. Sit quam tortor eu tellus non, in euismod integer.",
       avatar: "/images/avatar.png",
       name: "Ralph Edwards",
     },
     {
-      icon: "/images/feedback/icon3.png",
+      icon: "/images/Feedback/icon3.png",
       text: "Viverra lacus suspendisse elit, adipiscing orci, non turpis etiam sapien. Viverra blandit sem neque pretium. Duis enim semper fermentum consequat aenean libero. Blandit porta leo condimentum dolor, nisl, aliquet ante laoreet.",
       avatar: "/images/avatar.png",
       name: "Courtney Henry",
     },
     {
-      icon: "/images/feedback/icon4.png",
+      icon: "/images/Feedback/icon4.png",
       text: "Hendrerit augue ut mauris quis integer netus. Sit rhoncus magna habitasse. Egestas amet habitasse tellus ornare. Hendrerit senectus. Mauris egestas vitae praesent neque.",
       avatar: "/images/avatar.png",
       name: "Cameron Williamson",

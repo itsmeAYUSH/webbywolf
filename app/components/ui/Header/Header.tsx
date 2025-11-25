@@ -1,11 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Prevent horizontal page scroll — set on mount, reset on unmount.
+    const originalHtml = document.documentElement.style.overflowX;
+    const originalBody = document.body.style.overflowX;
+    document.documentElement.style.overflowX = "hidden";
+    document.body.style.overflowX = "hidden";
+    return () => {
+      document.documentElement.style.overflowX = originalHtml || "";
+      document.body.style.overflowX = originalBody || "";
+    };
+  }, []);
 
   const accordionItems = [
     { id: 1, title: "Lorem Ipsum" },

@@ -1,13 +1,13 @@
-  import Image from "next/image";
+import Image from "next/image";
 import { robotoCondensed, inter } from "../../../fonts";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen relative overflow-hidden">
+    <section className="min-h-screen relative overflow-x-hidden">
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-12 lg:pr-[50%]">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[80vh]">
-          {/* Left Text */}
+          {/* Left Text (keeps reserved space on right via lg:pr-[50%] above) */}
           <div className="pr-0 lg:pr-0">
             <h1
               className={`${robotoCondensed.className} text-[42px]`}
@@ -18,10 +18,11 @@ export default function Hero() {
             </h1>
 
             <p className="text-[20px] md:text-[20px] text-[#222222] mb-8 max-w-2xl tracking-[-0.02em]">
-              Lorem ipsum dolor sit amet consectetur. Enim netus cras congue quis
-              elit sociis. Sed mi rhoncus id habitant. In urna tellus nisi platea
-              morbi libero imperdiet neque. Justo suspendisse tristique posuere
-              quis eget viverra.
+              Lorem ipsum dolor sit amet consectetur. Enim netus cras congue
+              quis elit sociis. Sed mi rhoncus id habitant. In urna tellus nisi
+              platea morbi libero imperdiet neque. Justo suspendisse tristique
+              posuere quis eget viverra. Nunc euismod ultrices etiam nulla
+              habitasse.
             </p>
 
             {/* Input + Button */}
@@ -78,8 +79,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* image */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden z-0">
+      {/* Right image: stick to right with no margin/padding - visible on lg and above only */}
+      <div className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden z-0 hidden lg:block">
         <Image
           src="/images/hero.png"
           alt="Hero"
@@ -87,20 +88,27 @@ export default function Hero() {
           className="object-cover"
           priority
         />
+
+        {/* Blue tint overlay (visible only on lg) */}
         <div
           aria-hidden
           className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(14,65,150,0.24) 0%, rgba(14,65,150,0.18) 30%, rgba(14,65,150,0.08) 60%, transparent 100%)",
+            mixBlendMode: "overlay",
+          }}
         />
 
         {/* diagonal mask (keeps clean left edge) */}
         <div className="absolute left-0 top-0 h-full w-24 lg:w-36 bg-white -skew-x-12 origin-top-left" />
 
-        {/* bottom fade overlay (gradient only, no blur) */}
+        {/* bottom fade overlay (gradient only) */}
         <div
           className="absolute left-0 right-0 bottom-0 h-48 pointer-events-none"
           style={{
             background:
-              'linear-gradient(0deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.45) 55%, rgba(255,255,255,0) 100%)',
+              "linear-gradient(0deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.45) 55%, rgba(255,255,255,0) 100%)",
           }}
         />
       </div>

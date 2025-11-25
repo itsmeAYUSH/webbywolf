@@ -3,15 +3,11 @@ import Image from "next/image";
 
 export default function Features() {
   return (
-    <div className="relative w-full bg-white">
-       <div 
-        className="absolute top-1/2 left-1/2 w-[200%] h-[200%] -translate-x-1/2 -translate-y-1/2 bg-repeat rotate-50 pointer-events-none"
-        style={{ backgroundImage: "url('/images/design2.png')" }}
-      ></div>
-      <div className="ml-20 mx-auto px-0 lg:px-0 py-20 mr-0 lg:mr-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <div className="relative w-full overflow-hidden bg-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Side - Content */}
-          <div className="lg:col-span-7 space-y-8 lg:space-y-10">
+          <div className="lg:col-span-7 space-y-10">
             <div className="max-w-2xl">
               <h2 className="text-blue-600 font-semibold text-sm mb-3">
                 Lorem ipsum dolor sit amet
@@ -113,13 +109,13 @@ export default function Features() {
             </div>
           </div>
 
-          {/* Image */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm lg:max-w-md">
+          {/* Right Side - Image */}
+          <div className="lg:col-span-5 flex justify-center lg:justify-end hidden lg:flex">
+            <div className="relative overflow-hidden shadow-xl w-full max-w-md">
               <Image
                 src="/images/twomen.png"
                 alt="two men"
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-[520px] md:h-[480px] lg:h-[560px] object-cover"
                 width={500}
                 height={600}
                 style={{ maxHeight: "500px" }}
@@ -129,17 +125,15 @@ export default function Features() {
         </div>
       </div>
 
-      {/* Line */}
+      {/* Bottom Gradient Line (thicker to match image) */}
       <div className="relative w-full" aria-hidden>
-        <div className="mx-auto w-full max-w-[95%] h-4">
-          <Image
-            src="/images/line.png"
-            alt="decorative line"
-            width={1200}
-            height={16}
-            className="w-full h-full object-cover"
-          />
-        </div>
+        <div
+          className="w-full h-6 lg:h-8"
+          style={{
+            background:
+              "linear-gradient(90deg, #1E40AF 0%, #059669 50%, #7C3AED 100%)",
+          }}
+        />
       </div>
     </div>
   );

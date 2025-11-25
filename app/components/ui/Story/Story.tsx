@@ -64,7 +64,7 @@ export default function Story() {
               </div>
             </div>
 
-            {/* Card (overlapping, on right) - Added relative z-10 to bring to front */}
+            {/* Card */}
             <div className="lg:col-span-5 lg:-ml-20 lg:mt-12 relative z-10">
               <div className="bg-white rounded-md shadow-lg p-8 border border-gray-100">
                 <h3 className="text-xl font-semibold text-[#1f3749] mb-4">

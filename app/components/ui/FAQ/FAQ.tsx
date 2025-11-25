@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
@@ -30,15 +31,26 @@ export default function FAQ() {
   return (
     <section className="bg-white py-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <motion.h1
+          className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           FREQUENTLY ASKED QUESTIONS (FAQS)
-        </h1>
+        </motion.h1>
 
-        {/* FAQ Items */}
         <div className="space-y-4">
           {faqItems.map((item, index) => (
-            <div key={index} className="border border-gray-200 rounded-lg">
+            <motion.div
+              key={index}
+              className="border border-gray-200 rounded-lg"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 * index }}
+            >
               <button
                 onClick={() => toggleItem(index)}
                 className="w-full px-6 py-4 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors"
@@ -62,16 +74,19 @@ export default function FAQ() {
                   />
                 </svg>
               </button>
-              
-              {/* Answer Content */}
               {openIndex === index && (
-                <div className="px-6 py-4 border-t border-gray-200">
+                <motion.div
+                  className="px-6 py-4 border-t border-gray-200"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
                   <p className="text-gray-600 leading-relaxed">
                     {item.answer}
                   </p>
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

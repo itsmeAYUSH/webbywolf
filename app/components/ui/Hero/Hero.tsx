@@ -1,5 +1,7 @@
+'use client';
 import Image from "next/image";
 import { robotoCondensed, inter } from "../../../fonts";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -7,32 +9,50 @@ export default function Hero() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-12 lg:pr-[50%]">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[80vh]">
-          {/* Left Text (keeps reserved space on right via lg:pr-[50%] above) */}
-          <div className="pr-0 lg:pr-0">
-            <h1
+          {/* Left Text */}
+          <motion.div
+            className="pr-0 lg:pr-0"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <motion.h1
               className={`${robotoCondensed.className} text-[42px]`}
               style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
             >
               Lorem ipsum dolor
               <br /> sit amet
-            </h1>
-
-            <p className="text-[20px] md:text-[20px] text-[#222222] mb-8 max-w-2xl tracking-[-0.02em]">
+            </motion.h1>
+            <motion.p
+              className="text-[20px] md:text-[20px] text-[#222222] mb-8 max-w-2xl tracking-[-0.02em]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+            >
               Lorem ipsum dolor sit amet consectetur. Enim netus cras congue
               quis elit sociis. Sed mi rhoncus id habitant. In urna tellus nisi
               platea morbi libero imperdiet neque. Justo suspendisse tristique
               posuere quis eget viverra. Nunc euismod ultrices etiam nulla
               habitasse.
-            </p>
-
-            {/* Input + Button */}
-            <form className="flex flex-col sm:flex-row items-center gap-4 max-w-2xl">
+            </motion.p>
+            <motion.form
+              className="flex flex-col sm:flex-row items-center gap-4 max-w-2xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
               <input
                 type="email"
                 placeholder="example@mail.com"
                 className="flex-1 px-4 py-3 border border-gray-200 rounded-md text-base focus:outline-none focus:ring-2 focus:ring-[#0546D2] text-[#222222]"
               />
-
               <button
                 type="submit"
                 className="inline-flex items-center bg-[#1959AC] hover:bg-[#0546D2] text-white px-5 py-3 rounded-md text-base font-semibold shadow-md transition-colors"
@@ -52,10 +72,14 @@ export default function Hero() {
                   />
                 </svg>
               </button>
-            </form>
-
-            {/* Checkbox line */}
-            <div className="flex items-center gap-3 mt-5">
+            </motion.form>
+            <motion.div
+              className="flex items-center gap-3 mt-5"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               <span className="w-6 h-6 rounded-full bg-[#1959AC] flex items-center justify-center text-white">
                 <svg
                   className="w-3 h-3"
@@ -74,13 +98,18 @@ export default function Hero() {
               <span className="text-sm text-[#222222]">
                 No credit card required!
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
-
       {/* Right image: stick to right with no margin/padding - visible on lg and above only */}
-      <div className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden z-0 hidden lg:block">
+      <motion.div
+        className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden z-0 hidden lg:block"
+        initial={{ opacity: 0, x: 60 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <Image
           src="/images/hero.png"
           alt="Hero"
@@ -88,7 +117,6 @@ export default function Hero() {
           className="object-cover"
           priority
         />
-
         {/* Blue tint overlay (visible only on lg) */}
         <div
           aria-hidden
@@ -111,7 +139,7 @@ export default function Hero() {
               "linear-gradient(0deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.8) 25%, rgba(255,255,255,0.45) 55%, rgba(255,255,255,0) 100%)",
           }}
         />
-      </div>
+      </motion.div>
     </section>
   );
 }

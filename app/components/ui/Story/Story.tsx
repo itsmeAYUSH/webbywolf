@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import { robotoCondensed, inter } from "../../../fonts";
+import { motion } from "framer-motion";
 
 export default function Story() {
   const slides = [
@@ -34,27 +35,43 @@ export default function Story() {
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Heading */}
-        <h1
+        <motion.h1
           className={`${robotoCondensed.className} text-[42px] text-center mb-8 uppercase`}
           style={{ letterSpacing: '-0.02em', fontWeight: 700 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
         >
           LOREM IPSUM DOLOR SIT AMET
-        </h1>
+        </motion.h1>
 
         {/* Description */}
-        <div className="text-center mb-10">
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           <p className="text-gray-600 leading-relaxed max-w-1xl mx-auto">
             Aliquet sed nulla tincidunt pulvinar sed fames sit facilisis dictumst.
             Ornare faucibus quis velit fringilla aliquam ultricies. Malesuada ut
             aliquam at ac est nisi, interdum etiam dignissim. Sed ut vestibulum
             eget purus ornare. Risus elit et fringilla habitant ut facilisi.
           </p>
-        </div>
+        </motion.div>
 
         {/* Content */}
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div className="lg:col-span-7 relative z-0">
+            <motion.div
+              className="lg:col-span-7 relative z-0"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
               <div className="relative">
                 <img
                   src={slides[index].image}
@@ -62,10 +79,16 @@ export default function Story() {
                   className="w-full h-80 md:h-96 lg:h-[420px] object-cover rounded-sm shadow-sm"
                 />
               </div>
-            </div>
+            </motion.div>
 
             {/* Card */}
-            <div className="lg:col-span-5 lg:-ml-20 lg:mt-12 relative z-10">
+            <motion.div
+              className="lg:col-span-5 lg:-ml-20 lg:mt-12 relative z-10"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+            >
               <div className="bg-white rounded-md shadow-lg p-8 border border-gray-100">
                 <h3 className="text-xl font-semibold text-[#1f3749] mb-4">
                   {slides[index].title}
@@ -93,7 +116,7 @@ export default function Story() {
                   </svg>
                 </a>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Pagination */}

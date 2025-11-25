@@ -1,5 +1,7 @@
+'use client'
 import { robotoCondensed } from "../../../fonts";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Background1() {
   return (
@@ -12,7 +14,12 @@ export default function Background1() {
 
       <div className="absolute inset-0 bg-black/30"></div>
 
-      <div className="absolute top-8 left-8 z-10">
+      <motion.div
+        className="absolute top-8 left-8 z-10"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
         <Image
           src="/images/logo.png"
           alt="Logo"
@@ -20,18 +27,26 @@ export default function Background1() {
           height={32}
           className="h-8 w-auto"
         />
-      </div>
+      </motion.div>
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
-        <h1
+        <motion.h1
           className={`${robotoCondensed.className} text-[42px] mb-8 `}
           style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
         >
           Lorem ipsum dolor sit amet consectetur. Quis adipiscing purus egestas
           aliquam viverra mi.
-        </h1>
+        </motion.h1>
 
         {/* Description Text */}
-        <div className="space-y-6 text-lg md:text-xl leading-relaxed mb-12">
+        <motion.div
+          className="space-y-6 text-lg md:text-xl leading-relaxed mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
           <p>
             Lorem ipsum dolor sit amet consectetur. Mattis justo euismod
             volutpat vestibulum nisi at ac risus amet. Mi accumsan sagittis
@@ -47,8 +62,13 @@ export default function Background1() {
             Nulla luctus quam lacus lacus non at. Tincidunt morbi feugiat a
             pulvinar euismod natoque nulla ligula. Tincidunt cursus vitae leo.
           </p>
-        </div>
-        <button className="mt-6 inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md shadow-md transition">
+        </motion.div>
+        <motion.button
+          className="mt-6 inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md shadow-md transition"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <span className="mr-3">{"Loerum Ipsum"}</span>
           <svg
             className="w-4 h-4"
@@ -63,7 +83,7 @@ export default function Background1() {
               d="M17 8l4 4m0 0l-4 4m4-4H3"
             />
           </svg>
-        </button>
+        </motion.button>
       </div>
     </section>
   );

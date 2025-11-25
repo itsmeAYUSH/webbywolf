@@ -1,10 +1,19 @@
+"use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
 export default function Download() {
   return (
     <section className="bg-[#F3F3F3]">
       <div className="max-w-7xl mx-auto mb-40 px-4 my-20 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-0">
-          <div className="space-y-6 mr-8 lg:mr-12  py-16">
+          <motion.div
+            className="space-y-6 mr-8 lg:mr-12  py-16"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             {/* Subheading */}
             <h2 className="text-xl md:text-2xl font-bold text-[#0546D2]">
               Lorem Ipsum
@@ -27,7 +36,14 @@ export default function Download() {
 
             {/* Download Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="#" className="inline-block">
+              <motion.a
+                href="#"
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <Image
                   src="/images/appstore.png"
                   alt="Download on App Store"
@@ -35,8 +51,15 @@ export default function Download() {
                   height={40}
                   className="h-10 w-auto"
                 />
-              </a>
-              <a href="#" className="inline-block">
+              </motion.a>
+              <motion.a
+                href="#"
+                className="inline-block"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 <Image
                   src="/images/googleplay.png"
                   alt="Download on App Store"
@@ -44,12 +67,18 @@ export default function Download() {
                   height={40}
                   className="h-10 w-auto"
                 />
-              </a>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Side*/}
-          <div className="flex justify-end p-0 m-0">
+          <motion.div
+            className="flex justify-end p-0 m-0"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <div className="relative p-0 m-0">
               <Image
                 src="/images/handwithphone.png"
@@ -59,7 +88,7 @@ export default function Download() {
                 className="w-[130%] h-auto max-w-none p-0 m-0"
               />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,5 +1,7 @@
+"use client";
 import { robotoCondensed } from "../../../fonts";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function NoLimits() {
   return (
@@ -13,32 +15,52 @@ export default function NoLimits() {
           fill
         />
       </div>
-
       {/* Text Content - Upper Left Corner */}
-      <div className="relative z-10 pt-8 pl-8 md:pt-12 md:pl-12 lg:pt-16 lg:pl-16 max-w-lg">
-        {/* Subheading */}
-        <h3 className="text-xl md:text-2xl font-bold text-gray-600 uppercase tracking-wide">
+      <motion.div
+        className="relative z-10 pt-8 pl-8 md:pt-12 md:pl-12 lg:pt-16 lg:pl-16 max-w-lg"
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
+      >
+        <motion.h3
+          className="text-xl md:text-2xl font-bold text-gray-600 uppercase tracking-wide"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           NO LIMITS
-        </h3>
-
-        {/* Main Heading */}
-        <h1
+        </motion.h3>
+        <motion.h1
           className={`${robotoCondensed.className} text-[42px]`}
           style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
           LOREM IPSUM DOLOR SIT AMET
-        </h1>
-
-        {/* Description */}
-        <div className="space-y-4 mt-6">
+        </motion.h1>
+        <motion.div
+          className="space-y-4 mt-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <p className="text-base md:text-lg text-gray-600 leading-relaxed">
             Lorem ipsum dolor sit amet consectetur. Nisi faucibus vitae
             porttitor pharetra tempor quis arcu. Ipsum nullam.
           </p>
-        </div>
-
-        {/* Button/Link */}
-        <div className="pt-4">
+        </motion.div>
+        <motion.div
+          className="pt-4"
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <button
             type="submit"
             className="mt-6 inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md shadow-md transition"
@@ -58,8 +80,8 @@ export default function NoLimits() {
               />
             </svg>
           </button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

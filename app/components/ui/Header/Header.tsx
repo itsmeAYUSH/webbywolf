@@ -2,13 +2,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
   useEffect(() => {
-    // Prevent horizontal page scroll — set on mount, reset on unmount.
+    // Keep horizontal scroll disabled while this header mounts, restore later.
     const originalHtml = document.documentElement.style.overflowX;
     const originalBody = document.body.style.overflowX;
     document.documentElement.style.overflowX = "hidden";
@@ -30,10 +31,21 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-transparent absolute top-0 left-0 z-50">
+    <motion.header
+      className="w-full bg-transparent absolute top-0 left-0 z-50"
+      initial={{ y: -40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+    >
       <nav className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="relative flex items-center h-20">
-          <div className="flex items-center">
+          {/* Left: site logo */}
+          <motion.div
+            className="flex items-center"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/images/logo.png"
@@ -43,9 +55,9 @@ export default function Header() {
                 className="h-6 w-auto ml-2 object-contain"
               />
             </Link>
-          </div>
+          </motion.div>
 
-          {/* Accordions */}
+          {/* Center: accordion items in the nav */}
           <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-8">
             {accordionItems.map((item) => (
               <div key={item.id} className="relative">
@@ -72,7 +84,7 @@ export default function Header() {
                   </svg>
                 </button>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown: shows the content for this accordion */}
                 {openAccordion === item.id && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-44 bg-white rounded-md shadow-lg border border-gray-200 py-1 z-50">
                     <Link
@@ -95,7 +107,7 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Right Section - Sign In and Mobile Toggle */}
+          {/* Right: sign-in button and toggle for the mobile menu */}
           <div className="ml-auto flex items-center space-x-3">
             <button className="hidden md:inline-flex items-center bg-white border border-gray-200 px-4 py-2 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:shadow-md hover:bg-gray-50 transition-colors">
               Sign in
@@ -128,10 +140,10 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile: collapsible menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-3 bg-white rounded-lg shadow-lg border border-gray-200 py-3">
-            {/* Three Mobile Accordions */}
+            {/* Mobile menu items with simple expansion */}
             {accordionItems.map((item) => (
               <div
                 key={item.id}
@@ -191,6 +203,6 @@ export default function Header() {
           </div>
         )}
       </nav>
-    </header>
+    </motion.header>
   );
 }

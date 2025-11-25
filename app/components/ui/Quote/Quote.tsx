@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { robotoCondensed, inter } from "../../../fonts";
+import { motion } from "framer-motion";
 
 type FormState = {
   name: string;
@@ -63,14 +64,25 @@ export default function Quote() {
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
       {/* Title */}
-      <h1
+      <motion.h1
         className={`${robotoCondensed.className} text-[42px] text-center`}
         style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7 }}
       >
         Request a Quote
-      </h1>
-
-      <form onSubmit={handleSubmit} className="mt-10" noValidate>
+      </motion.h1>
+      <motion.form
+        onSubmit={handleSubmit}
+        className="mt-10"
+        noValidate
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, delay: 0.1 }}
+      >
         {/* Two-column grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           {/* Name */}
@@ -266,7 +278,7 @@ export default function Quote() {
             </p>
           )}
         </div>
-      </form>
+      </motion.form>
     </section>
   );
 }

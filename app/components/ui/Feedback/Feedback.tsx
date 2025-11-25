@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { robotoCondensed, inter } from "../../../fonts";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Feedback = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,31 +54,57 @@ const Feedback = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-20">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6">
+        <motion.div
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 gap-6"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
           <div className="max-w-2xl">
-            <h3
+            <motion.h3
               className={`${inter.className} text-[24px]  text-white semibold `}
               style={{ letterSpacing: "-0.04em", fontWeight: 600 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
             >
               Join other Sun harvesters
-            </h3>
-            <h1
+            </motion.h3>
+            <motion.h1
               className={`${robotoCondensed.className} text-[42px]  text-white`}
               style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
               LOREM IPSUM DOLOR SIT AMET
-            </h1>
-            <p className="text-white text-base leading-relaxed opacity-90">
+            </motion.h1>
+            <motion.p
+              className="text-white text-base leading-relaxed opacity-90"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+            >
               Dui euismod iaculis libero, aliquet vitae at elementum porttitor.
               Eleifend mi tristique condimentum congue fusce nunc, donec magnis
               commodo.
-            </p>
+            </motion.p>
           </div>
 
-          <button className="px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg whitespace-nowrap">
+          <motion.button
+            className="px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 shadow-lg whitespace-nowrap"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             Lorem Ipsum
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {/* Testimonials Carousel */}
         <div className="relative">
@@ -91,7 +118,7 @@ const Feedback = () => {
               }}
             >
               {testimonials.map((testimonial, index) => (
-                <div
+                <motion.div
                   key={index}
                   className="flex-shrink-0 bg-white rounded-2xl p-8 shadow-xl"
                   style={{
@@ -100,6 +127,10 @@ const Feedback = () => {
                     }px)`,
                     minWidth: "280px",
                   }}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.1 * index }}
                 >
                   {/* Icon */}
                   <div className="mb-6 w-16 h-16">
@@ -130,14 +161,20 @@ const Feedback = () => {
                       {testimonial.name}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
 
         {/* Navigation Arrows */}
-        <div className="flex gap-4 mt-8">
+        <motion.div
+          className="flex gap-4 mt-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           <button
             onClick={handlePrev}
             className="w-12 h-12 rounded-full border-2 border-white text-white hover:bg-white hover:text-blue-600 transition-all duration-300 flex items-center justify-center"
@@ -177,7 +214,7 @@ const Feedback = () => {
               />
             </svg>
           </button>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

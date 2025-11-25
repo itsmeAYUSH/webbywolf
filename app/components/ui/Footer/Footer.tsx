@@ -1,12 +1,21 @@
+'use client'
 import Image from "next/image";
 import { robotoCondensed } from "../../../fonts";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
     <footer className="w-full overflow-x-hidden">
+      {/* Top area: logo, headline and newsletter CTA */}
       <div className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <div className="inline-block mb-6">
+          <motion.div
+            className="inline-block mb-6"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <Image
               src="/images/logo.png"
               alt="Logo"
@@ -14,22 +23,38 @@ export default function Footer() {
               height={12}
               className="h-12 w-auto"
             />
-          </div>
+          </motion.div>
 
-          <h1
+          <motion.h1
             className={`${robotoCondensed.className} text-[42px] font-bold uppercase`}
             style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
           >
             Lorem ipsum dolor sit amet <br />
             consectetur. Dui.
-          </h1>
+          </motion.h1>
 
-          <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl mx-auto">
+          <motion.p
+            className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             Lorem ipsum dolor sit amet consectetur. Nisl faucibus vitae
             porttitor pharetra tempor quis arcu. Ipsum nullam.
-          </p>
+          </motion.p>
 
-          <div className="mt-8">
+          <motion.div
+            className="mt-8"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
             <button
               type="submit"
               className="mt-6 inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded-md shadow-md transition"
@@ -49,11 +74,11 @@ export default function Footer() {
                 />
               </svg>
             </button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Dark Footer Section */}
+      {/* Footer links: grouped columns and copyright/footer links */}
       <div className="bg-gray-900 text-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="flex flex-col lg:flex-row gap-12">
@@ -70,7 +95,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* grid */}
+            {/* link columns */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 flex-1">
               {/* 1 */}
               <div>

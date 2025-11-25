@@ -1,4 +1,6 @@
+'use client';
 import Image from "next/image";
+import { motion } from "framer-motion";
 const Meet = () => {
   return (
     <div className="relative w-full mt-48 bg-[#F8F8F8]">
@@ -17,11 +19,16 @@ const Meet = () => {
           }}
         />
       </div>
-
       <div className="container mx-auto px-6 pb-16 lg:pb-20">
         <div className="flex flex-col lg:flex-row items-center relative">
           {/* Image - Outside and Above the Content Div */}
-          <div className="w-full lg:w-1/2 relative z-10 -mt-24 lg:-mt-32 mb-8 lg:mb-0 flex justify-center lg:justify-start">
+          <motion.div
+            className="w-full lg:w-1/2 relative z-10 -mt-24 lg:-mt-32 mb-8 lg:mb-0 flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
             <div className="relative overflow-hidden shadow-2xl max-w-xl w-full">
               <Image
                 src="/images/meet.png"
@@ -31,24 +38,46 @@ const Meet = () => {
                 className="w-full h-auto object-cover"
               />
             </div>
-          </div>
-
+          </motion.div>
           {/* Right Side - Content Div */}
-          <div className="space-y-6 w-full lg:w-1/2 p-8 lg:p-12  lg:-ml-16">
+          <motion.div
+            className="space-y-6 w-full lg:w-1/2 p-8 lg:p-12  lg:-ml-16"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
             <div className="space-y-4">
-              <h2 className="text-blue-600 font-semibold text-sm uppercase tracking-wide">
+              <motion.h2
+                className="text-blue-600 font-semibold text-sm uppercase tracking-wide"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
                 Lorem ipsum
-              </h2>
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+              </motion.h2>
+              <motion.h1
+                className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.2 }}
+              >
                 <span className="text-blue-600">LOREM</span> IPSUM DOLOR SIT
                 AMET CONSECTETUR. ENIM DONEC.
-              </h1>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              </motion.h1>
+              <motion.p
+                className="text-gray-600 text-lg leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
                 Lorem ipsum dolor sit amet consectetur. Vel pellentesque odio
                 enim amet non.
-              </p>
+              </motion.p>
             </div>
-
             {/* Features Grid */}
             <div className="grid grid-cols-2 gap-4 py-6">
               {[
@@ -59,15 +88,27 @@ const Meet = () => {
                 "Lorem Ipsum",
                 "Lorem Ipsum",
               ].map((feature, index) => (
-                <div key={index} className="flex items-center space-x-2">
+                <motion.div
+                  key={index}
+                  className="flex items-center space-x-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.05 * index }}
+                >
                   <div className="w-2 h-2 bg-blue-600 rounded-full" />
                   <p className="text-gray-700 font-medium">{feature}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
-
             {/* CTA Button */}
-            <button className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+            <motion.button
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
               Loerum ipsum
               <svg
                 className="w-5 h-5 ml-2"
@@ -82,11 +123,10 @@ const Meet = () => {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
       </div>
-
       {/* Bottom Gradient Line */}
       <div className="relative w-full h-2 mt-8">
         <Image

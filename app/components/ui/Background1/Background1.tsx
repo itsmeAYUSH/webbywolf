@@ -6,14 +6,16 @@ import { motion } from "framer-motion";
 export default function Background1() {
   return (
     <section className="relative min-h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center">
-      {/* Background Image */}
+      {/* BACKGROUND: decorative image layer */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/bg1.png')" }}
       ></div>
 
+      {/* OVERLAY: dark tint for better text contrast */}
       <div className="absolute inset-0 bg-black/30"></div>
 
+      {/* LOGO: brand mark at top-left */}
       <motion.div
         className="absolute top-8 left-8 z-10"
         initial={{ opacity: 0, y: -30 }}
@@ -28,6 +30,8 @@ export default function Background1() {
           className="h-8 w-auto"
         />
       </motion.div>
+
+      {/* MAIN: centered headlines and CTA */}
       <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-6">
         <motion.h1
           className={`${robotoCondensed.className} text-[42px] mb-8 `}

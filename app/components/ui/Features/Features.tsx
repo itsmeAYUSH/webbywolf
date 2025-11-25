@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 export default function Features() {
   return (
     <div className="relative w-full overflow-hidden bg-white">
+      {/* SECTION: features content with right-side image */}
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Side - Content */}

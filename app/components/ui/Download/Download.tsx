@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 export default function Download() {
   return (
     <section className="bg-[#F3F3F3]">
+      {/* LEFT: text and download links */}
       <div className="max-w-7xl mx-auto mb-40 px-4 my-20 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-0">
           <motion.div
@@ -71,7 +72,7 @@ export default function Download() {
             </div>
           </motion.div>
 
-          {/* Right Side*/}
+          {/* RIGHT: hero image of phone */}
           <motion.div
             className="flex justify-end p-0 m-0"
             initial={{ opacity: 0, x: 40 }}

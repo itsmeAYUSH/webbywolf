@@ -30,7 +30,7 @@ export default function FAQ() {
 
   return (
     <section className="bg-white py-16">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h1
           className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12"
           initial={{ opacity: 0, y: 40 }}

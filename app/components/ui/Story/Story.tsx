@@ -34,10 +34,9 @@ export default function Story() {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Heading */}
+        {/* PAGE HEADING */}
         <motion.h1
           className={`${robotoCondensed.className} text-[42px] text-center mb-8 uppercase`}
-          style={{ letterSpacing: '-0.02em', fontWeight: 700 }}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -46,23 +45,7 @@ export default function Story() {
           LOREM IPSUM DOLOR SIT AMET
         </motion.h1>
 
-        {/* Description */}
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <p className="text-gray-600 leading-relaxed max-w-1xl mx-auto">
-            Aliquet sed nulla tincidunt pulvinar sed fames sit facilisis dictumst.
-            Ornare faucibus quis velit fringilla aliquam ultricies. Malesuada ut
-            aliquam at ac est nisi, interdum etiam dignissim. Sed ut vestibulum
-            eget purus ornare. Risus elit et fringilla habitant ut facilisi.
-          </p>
-        </motion.div>
-
-        {/* Content */}
+        {/* SLIDES: auto-advancing image & content */}
         <div className="relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <motion.div

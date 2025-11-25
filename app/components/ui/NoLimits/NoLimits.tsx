@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function NoLimits() {
   return (
     <section className="min-h-screen bg-[#F1F5F9] relative">
-      {/* Background Image */}
+      {/* BACKGROUND: decorative big image on large screens, subtle on mobile */}
       <div className="absolute left-1/2 transform -translate-x-1/2 top-100 w-11/12 h-44 sm:h-56 opacity-70 z-0 pointer-events-none lg:inset-0 lg:w-[80vw] lg:h-[95vh] lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:opacity-100">
         <Image
           src="/images/noLimits.png"
@@ -15,7 +15,8 @@ export default function NoLimits() {
           fill
         />
       </div>
-      {/* Text Content - Upper Left Corner */}
+
+      {/* TEXT: left-aligned content and CTA */}
       <motion.div
         className="relative z-10 pt-8 pl-8 md:pt-12 md:pl-12 lg:pt-16 lg:pl-16 max-w-lg"
         initial={{ opacity: 0, x: -40 }}

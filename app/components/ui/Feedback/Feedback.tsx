@@ -1,10 +1,10 @@
 "use client";
-import { useState } from "react";
+import { motion } from "framer-motion";
 import { robotoCondensed, inter } from "../../../fonts";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
-const Feedback = () => {
+export default function Feedback() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardsToShow = 3;
 
@@ -218,6 +218,4 @@ const Feedback = () => {
       </div>
     </div>
   );
-};
-
-export default Feedback;
+}

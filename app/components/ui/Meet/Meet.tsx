@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const Meet = () => {
   return (
     <div className="relative w-full mt-48 bg-[#F8F8F8]">
-      {/* Background Pattern */}
+      {/* VISUAL: repeating pattern background on the right */}
       <div className="absolute top-0 right-0 w-1/2 h-full opacity-5 pointer-events-none">
         <div
           className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent"
@@ -19,9 +19,11 @@ const Meet = () => {
           }}
         />
       </div>
+
       <div className="container mx-auto px-6 pb-16 lg:pb-20">
+        {/* STRUCTURE: image on left, content on right */}
         <div className="flex flex-col lg:flex-row items-center relative">
-          {/* Image - Outside and Above the Content Div */}
+          {/* IMAGE: hero visual, slightly overlapping */}
           <motion.div
             className="w-full lg:w-1/2 relative z-10 -mt-24 lg:-mt-32 mb-8 lg:mb-0 flex justify-center lg:justify-start"
             initial={{ opacity: 0, x: -40 }}
@@ -39,7 +41,8 @@ const Meet = () => {
               />
             </div>
           </motion.div>
-          {/* Right Side - Content Div */}
+
+          {/* CONTENT: title, features, CTA */}
           <motion.div
             className="space-y-6 w-full lg:w-1/2 p-8 lg:p-12  lg:-ml-16"
             initial={{ opacity: 0, x: 40 }}
@@ -127,7 +130,8 @@ const Meet = () => {
           </motion.div>
         </div>
       </div>
-      {/* Bottom Gradient Line */}
+
+      {/* BOTTOM: thin decorative line */}
       <div className="relative w-full h-2 mt-8">
         <Image
           src="/images/line.png"

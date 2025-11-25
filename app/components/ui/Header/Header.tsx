@@ -9,7 +9,6 @@ export default function Header() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
   useEffect(() => {
-    // Keep horizontal scroll disabled while this header mounts, restore later.
     const originalHtml = document.documentElement.style.overflowX;
     const originalBody = document.body.style.overflowX;
     document.documentElement.style.overflowX = "hidden";
@@ -32,6 +31,7 @@ export default function Header() {
 
   return (
     <motion.header
+      // Top-level header: fixed/translucent, contains site nav and actions
       className="w-full bg-transparent absolute top-0 left-0 z-50"
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -39,7 +39,7 @@ export default function Header() {
     >
       <nav className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="relative flex items-center h-20">
-          {/* Left: site logo */}
+          {/* LEFT: brand logo / home link */}
           <motion.div
             className="flex items-center"
             initial={{ opacity: 0, x: -30 }}
@@ -57,7 +57,7 @@ export default function Header() {
             </Link>
           </motion.div>
 
-          {/* Center: accordion items in the nav */}
+          {/* CENTER: primary navigation / accordions */}
           <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 items-center space-x-8">
             {accordionItems.map((item) => (
               <div key={item.id} className="relative">
@@ -107,7 +107,7 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Right: sign-in button and toggle for the mobile menu */}
+          {/* RIGHT: account actions and mobile toggle */}
           <div className="ml-auto flex items-center space-x-3">
             <button className="hidden md:inline-flex items-center bg-white border border-gray-200 px-4 py-2 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:shadow-md hover:bg-gray-50 transition-colors">
               Sign in
@@ -140,7 +140,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile: collapsible menu */}
+        {/* MOBILE: collapsible menu for small screens */}
         {isMenuOpen && (
           <div className="md:hidden mt-3 bg-white rounded-lg shadow-lg border border-gray-200 py-3">
             {/* Mobile menu items with simple expansion */}

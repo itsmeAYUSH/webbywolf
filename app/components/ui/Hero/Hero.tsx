@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section className="min-h-screen relative overflow-x-hidden">
-      {/* Main Content */}
+      {/* HERO: left content block (headline, description, form) */}
       <div className="max-w-7xl mx-auto px-6 py-12 lg:pr-[50%]">
         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 items-center min-h-[80vh]">
           {/* Left Text */}
@@ -102,7 +102,8 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-      {/* Right image: stick to right with no margin/padding - visible on lg and above only */}
+
+      {/* HERO: right image / decorative panel (visible on lg+) */}
       <motion.div
         className="absolute right-0 top-0 bottom-0 w-1/2 overflow-hidden z-0 hidden lg:block"
         initial={{ opacity: 0, x: 60 }}

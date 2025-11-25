@@ -63,10 +63,9 @@ export default function Quote() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-16">
-      {/* Title */}
+      {/* TITLE: form header */}
       <motion.h1
         className={`${robotoCondensed.className} text-[42px] text-center`}
-        style={{ letterSpacing: "-0.02em", fontWeight: 700 }}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -74,11 +73,13 @@ export default function Quote() {
       >
         Request a Quote
       </motion.h1>
+
+      {/* FORM: responsive inputs and textarea */}
       <motion.form
         onSubmit={handleSubmit}
         className="mt-10"
         noValidate
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.1 }}

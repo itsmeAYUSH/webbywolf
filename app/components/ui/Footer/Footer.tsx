@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Footer() {
   return (
     <footer className="w-full overflow-x-hidden">
-      {/* Top area: logo, headline and newsletter CTA */}
+      {/* TOP: newsletter sign-up / small hero area */}
       <div className="bg-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Footer links: grouped columns and copyright/footer links */}
+      {/* BOTTOM: organized footer columns and small links */}
       <div className="bg-gray-900 text-gray-200">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="flex flex-col lg:flex-row gap-12">
